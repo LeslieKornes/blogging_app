@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   protected
     def resource_not_found
       message = "The article you requested can't be found"
-      flash[:alert] = message
+      flash[:danger] = message
       redirect_to root_path
     end
 
