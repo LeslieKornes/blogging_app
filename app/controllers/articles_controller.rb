@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def destroy
-    set_article
     if @article.destroy
       flash[:success] = "Article has been deleted!"
       redirect_to articles_path
@@ -29,15 +28,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    set_article
   end
 
   def show
-    set_article
   end
 
   def update
-    set_article
     if @article.update(article_params)
       flash[:success] = "Article has been updated!"
       redirect_to @article
