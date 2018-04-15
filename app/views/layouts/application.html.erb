@@ -3,7 +3,6 @@
   <head>
     <title>BloggingApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -23,6 +22,12 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><%= link_to "Authors", "#" %></li>
+              <li>
+                <%= link_to "Sign up", new_user_registration_path %>
+              </li>
+              <li>
+                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+              </li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -32,7 +37,7 @@
       <div class="row">
         <div class="col-md-12">
           <% flash.each do |key, message| %>
-            <div class="text-center alert alert-<%= key %>">
+            <div class="text-center alert alert-<%= key == 'notice'? 'success': 'danger' %>">
               <%= message %>
             </div>
           <% end %>
