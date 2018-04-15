@@ -43,6 +43,10 @@ body {
   color: #ff0000;
 }
 
+.navbar-default .navbar-brand:hover {
+  color: pink;
+}
+
 // Form styling
 .page-heading, div > label {
   color: #64103F;
