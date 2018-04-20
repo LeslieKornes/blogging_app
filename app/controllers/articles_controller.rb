@@ -43,6 +43,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = @article.comments.build
+    @comments = @article.comments
   end
 
   def update
