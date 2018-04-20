@@ -6,10 +6,11 @@ class ArticlesController < ApplicationController
     unless @article.user == current_user
       flash[:alert] = "You can only delete your own article."
       redirect_to root_path
-    end
-    if @article.destroy
-      flash[:success] = "Article has been deleted!"
-      redirect_to articles_path
+    else
+      if @article.destroy
+        flash[:success] = "Article has been deleted!"
+        redirect_to articles_path
+      end
     end
   end
 
