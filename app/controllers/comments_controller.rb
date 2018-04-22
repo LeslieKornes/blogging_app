@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+
   before_action :set_article
 
   def create
@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
       @comment.user = current_user
 
       if @comment.save
+        ApplicationCable.server.broadcast "comments",
+          render(partial: '/comments/comment',
+          object: @comment)
         flash[:notice] = "Comment has been created"
       else
         flash.now[:alert] = "Comment has not been created"
