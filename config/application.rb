@@ -18,7 +18,6 @@ Bundler.require(*Rails.groups)
 
 module BloggingApp
   class Application < Rails::Application
-    config.action_cable.mount_path = '/cable'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
@@ -26,7 +25,6 @@ module BloggingApp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.action_cable.mount_path = '/cable'
   end
 end
