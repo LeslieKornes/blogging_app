@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  
   before_action :set_article
 
   def create
